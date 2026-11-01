@@ -1,4 +1,4 @@
-from langchain_mistralai import ChatMistralAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_text_splitters import RecursiveCharacterTextSplitter
@@ -8,9 +8,13 @@ import os
 
 
 def get_llm():
-    return ChatMistralAI(model_name="mistral-small-latest", mistral_api_key=os.environ.get("MISTRAL_API_KEY"),temperature=0.3)
+    api_key = os.environ.get("GOOGLE_API_KEY")
+    if not api_key:
+        raise ValueError("GOOGLE_API_KEY environment variable is not set. Please set it in your .env file.")
+    model = os.environ.get("GEMINI_MODEL", "gemini-3.8-flash")
+    return ChatGoogleGenerativeAI(model=model, google_api_key=api_key, temperature=0.3)
 
-def split_transcript(transcript: str, chunk_size: int = 3000, chunk_overlap: int = 200) -> list:
+def split_transcript(transcript: str, chunk_size: int = 5000, chunk_overlap: int = 100) -> list:
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=chunk_size,
         chunk_overlap=chunk_overlap,

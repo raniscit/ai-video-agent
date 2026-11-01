@@ -7,16 +7,17 @@ openai-whisper>=20240930      # local Whisper (also supports task="translate" fo
 torch>=2.2.0
 numpy>=1.26.0
 ffmpeg-python>=0.2.0          # Python wrapper (the ffmpeg binary must be installed separately)
+audioop-lts>=0.2.1            # Python 3.13+ compatibility for pydub
 
 # ---------- Translation (Hindi -> English text fallback) ----------
 deep-translator>=1.11.4
 
-# ---------- LLM: LangChain LCEL + Mistral ----------
+# ---------- LLM: LangChain LCEL + Google Gemini ----------
 langchain>=0.3.0
 langchain-core>=0.3.0
 langchain-community>=0.3.0
 langchain-text-splitters>=0.3.0
-langchain-mistralai>=0.2.0
+langchain-google-genai>=2.0.0
 
 # ---------- RAG: ChromaDB + HuggingFace embeddings ----------
 chromadb>=0.5.5
@@ -28,5 +29,6 @@ sentence-transformers>=3.0.0
 fpdf2>=2.7.9
 
 # ---------- Utilities ----------
-python-dotenv>=1.0.1          # load MISTRAL_API_KEY from .env
+python-dotenv>=1.0.1          # load GOOGLE_API_KEY from .env
 pydantic>=2.7.0
+pydub>=0.25.1
