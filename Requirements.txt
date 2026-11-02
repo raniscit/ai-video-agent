@@ -2,7 +2,7 @@
 streamlit>=1.38.0
 
 # ---------- Audio input & transcription ----------
-yt-dlp>=2024.8.6              # download audio from YouTube URLs
+# yt-dlp>=2024.8.6              # download audio from YouTube URLs
 openai-whisper>=20240930      # local Whisper (also supports task="translate" for Hindi -> English)
 torch>=2.2.0
 numpy>=1.26.0
