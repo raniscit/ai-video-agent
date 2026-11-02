@@ -32,3 +32,5 @@ fpdf2>=2.7.9
 python-dotenv>=1.0.1          # load GOOGLE_API_KEY from .env
 pydantic>=2.7.0
 pydub>=0.25.1
+
+yt-dlp[default]
